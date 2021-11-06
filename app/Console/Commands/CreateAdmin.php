@@ -4,12 +4,12 @@ namespace App\Console\Commands;
 
 use App\Helpers\StringHelpers;
 use App\Models\Role;
+use App\Models\User;
 use App\Services\Role\RoleProvider;
 use App\Services\UserService;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
 
 class CreateAdmin extends Command
 {
@@ -51,31 +51,19 @@ class CreateAdmin extends Command
             return 1;
         }
 
-        /**
-         * @var Role $role
-         */
-        $adminRole = RoleProvider::getAdminRole();
-        
-        if (!$adminRole) {
-            $this->error('Cannot find admin role. Run a migration first.');
-            return 1;
-        }
-
-        $userService = new UserService();
-        
         $password = $this->option('password') ?? StringHelpers::getRandomString();
 
-        $user = $userService->createUser([
-            'email' => $email,
-            'name' => 'Administrator',
-            'role_id' => $adminRole->id,
-            'password' => Hash::make($password)
-        ]);
-
-        if (!$user) {
-            $this->error('Admin user NOT created. Check if user with provided email already exists');
+        if (User::query()->where('email', $email)->first()) {
+            $this->error('Admin user NOT created. User with provided email already exists');
             return 1;
         }
+
+        $user = new User([
+            'email' => $email,
+            'name' => 'Administrator',
+        ]);
+        $user->password = Hash::make($password);
+        $user->save();
 
         $user->email_verified_at = Carbon::now()->format('Y-m-d H:i:s');
         $user->save();
