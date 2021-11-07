@@ -17,6 +17,7 @@ Help()
    echo "db_port           Set database port."
    echo "db_host           Set database host."
    echo "db_connection     Set database connection."
+   echo "env               Set environment type."
    echo
 }
 echo
@@ -79,38 +80,44 @@ while getopts "$optspec" optchar; do
                 db_name=*) # Set database name
                     val=${OPTARG#*=}
                     echo "Set DB_DATABASE"
-                    grep '^DB_DATABASE' .env
                     sed -i~ "s,^DB_DATABASE=.*$,DB_DATABASE=${val}," .env
+                    grep '^DB_DATABASE' .env
                     ;;
                 db_user=*) # Set database user
                     val=${OPTARG#*=}
                     echo "Set DB_USERNAME"
-                    grep '^DB_USERNAME' .env
                     sed -i~ "s,^DB_USERNAME=.*$,DB_USERNAME=${val}," .env
+                    grep '^DB_USERNAME' .env
                     ;;
                 db_password=*) # Set database password
                     val=${OPTARG#*=}
                     echo "Set DB_PASSWORD"
-                    grep '^DB_PASSWORD' .env
                     sed -i~ "s,^DB_PASSWORD=.*$,DB_PASSWORD=${val}," .env
+                    grep '^DB_PASSWORD' .env
                     ;;
                 db_port=*) # Set database port
                     val=${OPTARG#*=}
                     echo "Set DB_PORT"
-                    grep '^DB_PORT' .env
                     sed -i~ "s,^DB_PORT=.*$,DB_PORT=${val}," .env
+                    grep '^DB_PORT' .env
                     ;;
                 db_host=*) # Set database host
                     val=${OPTARG#*=}
                     echo "Set DB_HOST"
-                    grep '^DB_HOST' .env
                     sed -i~ "s,^DB_HOST=.*$,DB_HOST=${val}," .env
+                    grep '^DB_HOST' .env
                     ;;
                 db_connection=*) # Set database connection
                     val=${OPTARG#*=}
                     echo "Set DB_CONNECTION"
-                    grep '^DB_CONNECTION' .env
                     sed -i~ "s,^DB_CONNECTION=.*$,DB_CONNECTION=${val}," .env
+                    grep '^DB_CONNECTION' .env
+                    ;;
+                env=*) # Set environment type
+                    val=${OPTARG#*=}
+                    echo "Set APP_ENV"
+                    sed -i~ "s,^APP_ENV=.*$,APP_ENV=${val}," .env
+                    grep '^APP_ENV' .env
                     ;;
                 *)
                     if [ "$OPTERR" = 1 ] && [ "${optspec:0:1}" != ":" ]; then
