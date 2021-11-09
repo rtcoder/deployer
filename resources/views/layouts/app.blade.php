@@ -80,7 +80,20 @@
 
     <main class="py-4">
         <div class="container-fluid">
-            @yield('content')
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header d-flex flex-row justify-content-between">
+                            <div>@yield('page-name')</div>
+                            <div>@yield('page-actions')</div>
+                        </div>
+
+                        <div class="card-body">
+                            @yield('content')
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 </div>

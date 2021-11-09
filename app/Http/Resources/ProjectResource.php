@@ -9,6 +9,15 @@ use Illuminate\Database\Eloquent\Collection;
 class ProjectResource
 {
 
+    public function getProjects(int $page = 1, int $limit = 10): Collection
+    {
+        if ($page <= 0) {
+            $page = 1;
+        }
+        $offset = ($page - 1) * $limit;
+        return Project::query()->limit($limit)->offset($offset)->get();
+    }
+
     public function getProjectsCount(): int
     {
         return Project::query()->count();

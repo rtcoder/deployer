@@ -11,8 +11,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Project extends Model
 {
-    const TYPE_LARAVEL = 0;
-    const TYPE_REACT = 1;
+    const TYPE_LARAVEL = 'laravel';
+    const TYPE_REACT = 'react';
+    const TYPE_ANGULAR = 'angular';
+    const TYPE_NODEJS = 'node';
 
     protected $fillable = [
         'name',
