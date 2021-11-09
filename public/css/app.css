@@ -10019,3 +10019,34 @@ h3 {
     border-color: #dee2e6;
   }
 }
+a:hover {
+  text-decoration: none;
+  color: #0099cc;
+}
+
+.tiles {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.tiles .tile {
+  border: 1px solid #ccc;
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  height: 120px;
+  width: 120px;
+}
+.tiles .tile .tile-icon {
+  font-size: 30px;
+  padding: 10px;
+}
+.tiles .tile .tile-text {
+  font-size: 20px;
+}
+
+.last-deployments {
+  margin-top: 30px;
+}

@@ -1,0 +1,26 @@
+.tiles {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    .tile {
+        border: 1px solid #ccc;
+        margin: 5px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        height: 120px;
+        width: 120px;
+
+        .tile-icon {
+            font-size: 30px;
+            padding: 10px;
+        }
+
+        .tile-text {
+            font-size: 20px;
+        }
+    }
+
+}

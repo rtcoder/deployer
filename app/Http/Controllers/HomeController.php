@@ -25,9 +25,9 @@ class HomeController extends Controller
      */
     public function index(ProjectResource $projectResource): Renderable
     {
-
         return view('home', [
-            'projects_count' => $projectResource->getProjectsCount()
+            'projects_count' => $projectResource->getProjectsCount(),
+            'last_deployments' => $projectResource->getLastProjectsDeployments(10)
         ]);
     }
 }

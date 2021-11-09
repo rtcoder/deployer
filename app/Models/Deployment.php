@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int project_id
  * @property int status
  * @property array env_vars
- * @property string domain
  * @property string output
  * @property bool result
  */
@@ -20,7 +19,6 @@ class Deployment extends Model
         'project_id',
         'status',
         'env_vars',
-        'domain',
         'result',
         'output',
     ];
