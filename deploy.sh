@@ -47,10 +47,6 @@ if [[  "$*" != *-h* ]]; then
         echo "done"
     fi
 
-
-    echo "----- composer update -----"
-    composer update
-
     echo "----- composer install -----"
     composer install
 

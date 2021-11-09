@@ -5,17 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Resources\ProjectResource;
 use Illuminate\Contracts\Support\Renderable;
 
-class HomeController extends Controller
+class ProjectController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -25,7 +16,6 @@ class HomeController extends Controller
      */
     public function index(ProjectResource $projectResource): Renderable
     {
-
         return view('home', [
             'projects_count' => $projectResource->getProjectsCount()
         ]);
