@@ -10024,6 +10024,10 @@ a:hover {
   color: #0099cc;
 }
 
+.form-group label {
+  width: 100%;
+}
+
 .tiles {
   display: flex;
   flex-direction: row;

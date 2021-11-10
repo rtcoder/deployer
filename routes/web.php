@@ -20,5 +20,7 @@ Auth::routes(['register' => false]);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
-Route::get('/projects/new', [ProjectController::class, 'showProject'])->name('projects.add');
-Route::get('/projects/:id', [ProjectController::class, 'showProject'])->name('project.show');
+Route::get('/projects/new', [ProjectController::class, 'add'])->name('projects.add');
+Route::post('/projects/new', [ProjectController::class, 'create']);
+Route::get('/projects/{id}', [ProjectController::class, 'show'])->name('projects.show');
+Route::post('/projects/{id}', [ProjectController::class, 'update']);
