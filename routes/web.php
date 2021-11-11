@@ -24,3 +24,5 @@ Route::get('/projects/new', [ProjectController::class, 'add'])->name('projects.a
 Route::post('/projects/new', [ProjectController::class, 'create']);
 Route::get('/projects/{id}', [ProjectController::class, 'show'])->name('projects.show');
 Route::post('/projects/{id}', [ProjectController::class, 'update']);
+Route::get('/projects/{id}/deployments', [ProjectController::class, 'deployments'])->name('projects.deployment_configurations');
+Route::get('/projects/{id}/deployments/new', [ProjectController::class, 'deployments'])->name('projects.deployment_configurations.add');

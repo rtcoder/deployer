@@ -19,7 +19,7 @@
             </td>
         </tr>
     @endforeach
-    @if(!count($last_deployments))
+    @if(!count($deployments))
         <tr>
             <td colspan="3" align="center">{{ __('No data') }}</td>
         </tr>
