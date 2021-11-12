@@ -21,7 +21,8 @@ class ProjectController extends Controller
     {
         $page = $request->get('page') ?? 1;
         return view('pages.projects.index', [
-            'projects' => $projectResource->list($page)
+            'projects' => $projectResource->list($page),
+            'projectTypesNames' => Project::TYPES_NAMES
         ]);
     }
 
