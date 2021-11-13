@@ -30,7 +30,7 @@
             </tbody>
         </table>
 
-
+        <h4>Output:</h4>
         <div>
             <pre><code>{{ $deployment->output }}</code></pre>
         </div>

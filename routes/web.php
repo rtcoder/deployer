@@ -51,7 +51,9 @@ Route::prefix('projects')->group(function () {
             });
         });
 
-        Route::get('/instances', [ProjectController::class, 'instances'])->name('projects.instances');
-
+        Route::prefix('/instances')->group(function () {
+            Route::get('/', [ProjectController::class, 'index'])->name('projects.instances');
+            Route::get('/{id}', [ProjectController::class, 'show'])->name('projects.instances.show');
+        });
     });
 });
