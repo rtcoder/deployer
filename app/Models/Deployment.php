@@ -24,6 +24,12 @@ class Deployment extends Model
         self::STATUS_FAILED
     ];
 
+    const STATUSES_NAMES = [
+        self::STATUS_SUCCESS => 'Success',
+        self::STATUS_PENDING => 'Pending',
+        self::STATUS_FAILED => 'Failed'
+    ];
+
     protected $fillable = [
         'branch',
         'project_id',

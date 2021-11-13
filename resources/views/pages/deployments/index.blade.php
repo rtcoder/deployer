@@ -9,6 +9,7 @@
         <thead>
         <tr>
             <th>Name</th>
+            <th>Status</th>
             <th class="text-right">Actions</th>
         </tr>
         </thead>
@@ -17,6 +18,7 @@
         @foreach($deployments as $deployment)
             <tr>
                 <td>#{{ $deployment->id }} for {{ $deployment->branch }}</td>
+                <td>{{ $deploymentStatusesNames[$deployment->status] }}</td>
                 <td>
                     <div class="actions">
                         <a href="{{ route('projects.deployments.show',['project_id' => $projectId, 'id' => $deployment->id]) }}"
