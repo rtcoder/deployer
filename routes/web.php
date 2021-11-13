@@ -20,19 +20,34 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['register' => false]);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
-Route::get('/projects/new', [ProjectController::class, 'add'])->name('projects.add');
-Route::post('/projects/new', [ProjectController::class, 'create']);
-Route::get('/projects/{id}', [ProjectController::class, 'show'])->name('projects.show');
-Route::post('/projects/{id}', [ProjectController::class, 'update']);
 
-Route::get('/projects/{project_id}/deployments', [ProjectController::class, 'deployments'])->name('projects.deployments');
+Route::prefix('projects')->group(function () {
 
-Route::get('/projects/{project_id}/configurations', [DeploymentConfigurationController::class, 'index'])->name('projects.configurations');
-Route::get('/projects/{project_id}/configurations/new', [DeploymentConfigurationController::class, 'add'])->name('projects.configurations.add');
-Route::post('/projects/{project_id}/configurations/new', [DeploymentConfigurationController::class, 'create']);
-Route::get('/projects/{project_id}/configurations/{id}', [DeploymentConfigurationController::class, 'show'])->name('projects.configurations.show');
-Route::post('/projects/{project_id}/configurations/{id}', [DeploymentConfigurationController::class, 'update']);
-Route::post('/projects/{project_id}/configurations/{id}/run', [DeploymentConfigurationController::class, 'run'])->name('projects.configurations.run');
+    Route::get('/', [ProjectController::class, 'index'])->name('projects');
+    Route::get('/new', [ProjectController::class, 'add'])->name('projects.add');
+    Route::post('/new', [ProjectController::class, 'create']);
+    Route::get('/{id}', [ProjectController::class, 'show'])->name('projects.show');
+    Route::post('/{id}', [ProjectController::class, 'update']);
 
-Route::get('/projects/{project_id}/instances', [ProjectController::class, 'instances'])->name('projects.instances');
+
+    Route::prefix('/{project_id}')->group(function () {
+
+        Route::get('/deployments', [ProjectController::class, 'deployments'])->name('projects.deployments');
+
+        Route::prefix('/configurations')->group(function () {
+            Route::get('/', [DeploymentConfigurationController::class, 'index'])->name('projects.configurations');
+            Route::get('/new', [DeploymentConfigurationController::class, 'add'])->name('projects.configurations.add');
+            Route::post('/new', [DeploymentConfigurationController::class, 'create']);
+
+            Route::prefix('/{id}')->group(function () {
+                Route::get('/', [DeploymentConfigurationController::class, 'show'])->name('projects.configurations.show');
+                Route::post('/', [DeploymentConfigurationController::class, 'update']);
+                Route::post('/run', [DeploymentConfigurationController::class, 'run'])->name('projects.configurations.run');
+
+            });
+        });
+
+        Route::get('/instances', [ProjectController::class, 'instances'])->name('projects.instances');
+
+    });
+});
