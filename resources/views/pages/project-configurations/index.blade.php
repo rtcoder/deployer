@@ -55,22 +55,8 @@
         @endif
         </tbody>
     </table>
-    <style>
-        .actions {
-            display: flex;
-            flex-direction: row;
-            justify-content: end;
-            align-items: center;
-        }
+@endsection
 
-        .actions a {
-            color: #000000;
-            margin: 5px 10px;
-            font-size: 18px;
-        }
-
-        .actions a:hover {
-            color: #09c;
-        }
-    </style>
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/table/actions.css') }}">
 @endsection

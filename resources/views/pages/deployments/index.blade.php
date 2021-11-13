@@ -40,3 +40,7 @@
         </tbody>
     </table>
 @endsection
+
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/table/actions.css') }}">
+@endsection
