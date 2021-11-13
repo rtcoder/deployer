@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-name')
-    {{ __('deployer.Projects') }}
+    Edit project
 @endsection
 
 @section('page-actions')
