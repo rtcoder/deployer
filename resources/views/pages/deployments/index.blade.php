@@ -21,7 +21,7 @@
                 <td>{{ $deploymentStatusesNames[$deployment->status] }}</td>
                 <td>
                     <div class="actions">
-                        <a href="{{ route('projects.deployments.show',['project_id' => $projectId, 'id' => $deployment->id]) }}"
+                        <a href="{{ route('projects.deployments.show', ['project_id' => $projectId, 'id' => $deployment->id]) }}"
                            data-toggle="tooltip"
                            title="Show deployment">
                             <i class="far fa-eye"></i>

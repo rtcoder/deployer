@@ -14,6 +14,12 @@
         <h4>Environment variables:</h4>
 
         <table>
+            <thead>
+            <tr>
+                <th>Key</th>
+                <th>Value</th>
+            </tr>
+            </thead>
             <tbody>
             @foreach($deployment->env_vars as $key => $value)
                 <tr>
