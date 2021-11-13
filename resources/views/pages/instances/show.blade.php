@@ -23,9 +23,19 @@
         <p>Project dr: {{ $instance->project_dir }}</p>
         <p>Database name: <i>{{ $instance->db_name }}</i></p>
 
-        <h4></h4>
+        <h4>Nginx file <small>{{ $instance->nginx_conf_file }}</small></h4>
         <div>
-            <pre><code>{{ $deployment->output }}</code></pre>
+            <pre><code>{{ $nginxConfigContent }}</code></pre>
+        </div>
+
+        <h4>Access log file <small>{{ $instance->access_log_file }}</small></h4>
+        <div>
+            <pre><code>{{ $accessLogContent }}</code></pre>
+        </div>
+
+        <h4>Error log file <small>{{ $instance->error_log_file }}</small></h4>
+        <div>
+            <pre><code>{{ $errorLogContent }}</code></pre>
         </div>
     </div>
 @endsection

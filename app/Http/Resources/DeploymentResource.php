@@ -2,16 +2,16 @@
 
 namespace App\Http\Resources;
 
-use App\Models\DeploymentConfiguration;
+use App\Models\Deployment;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
-class ProjectDeploymentConfigurationResource
+class DeploymentResource
 {
 
     public function count(int $projectId): int
     {
-        return DeploymentConfiguration::query()
+        return Deployment::query()
             ->where('project_id', $projectId)
             ->count();
     }
@@ -22,13 +22,13 @@ class ProjectDeploymentConfigurationResource
             $page = 1;
         }
         $offset = ($page - 1) * $limit;
-        return DeploymentConfiguration::query()
+        return Deployment::query()
             ->where('project_id', $projectId)
             ->limit($limit)->offset($offset)->get();
     }
 
     public function find(int $id): Model|null
     {
-        return DeploymentConfiguration::query()->find($id);
+        return Deployment::query()->find($id);
     }
 }
