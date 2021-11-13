@@ -12,11 +12,6 @@ use Illuminate\Http\Request;
 class ProjectController extends Controller
 {
 
-    /**
-     * @param Request $request
-     * @param ProjectResource $projectResource
-     * @return Renderable
-     */
     public function index(Request $request, ProjectResource $projectResource): Renderable
     {
         $page = $request->get('page') ?? 1;

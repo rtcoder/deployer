@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DeploymentConfigurationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Auth;
@@ -24,7 +25,14 @@ Route::get('/projects/new', [ProjectController::class, 'add'])->name('projects.a
 Route::post('/projects/new', [ProjectController::class, 'create']);
 Route::get('/projects/{id}', [ProjectController::class, 'show'])->name('projects.show');
 Route::post('/projects/{id}', [ProjectController::class, 'update']);
-Route::get('/projects/{id}/deployments', [ProjectController::class, 'deployments'])->name('projects.deployments');
-Route::get('/projects/{id}/configurations', [ProjectController::class, 'configurations'])->name('projects.configurations');
-Route::get('/projects/{id}/instances', [ProjectController::class, 'instances'])->name('projects.instances');
-Route::get('/projects/{id}/configurations/new', [ProjectController::class, 'configurations'])->name('projects.configurations.add');
+
+Route::get('/projects/{project_id}/deployments', [ProjectController::class, 'deployments'])->name('projects.deployments');
+
+Route::get('/projects/{project_id}/configurations', [DeploymentConfigurationController::class, 'index'])->name('projects.configurations');
+Route::get('/projects/{project_id}/configurations/new', [DeploymentConfigurationController::class, 'add'])->name('projects.configurations.add');
+Route::post('/projects/{project_id}/configurations/new', [DeploymentConfigurationController::class, 'create']);
+Route::get('/projects/{project_id}/configurations/{id}', [DeploymentConfigurationController::class, 'show'])->name('projects.configurations.show');
+Route::post('/projects/{project_id}/configurations/{id}', [DeploymentConfigurationController::class, 'update']);
+Route::post('/projects/{project_id}/configurations/{id}/run', [DeploymentConfigurationController::class, 'run'])->name('projects.configurations.run');
+
+Route::get('/projects/{project_id}/instances', [ProjectController::class, 'instances'])->name('projects.instances');

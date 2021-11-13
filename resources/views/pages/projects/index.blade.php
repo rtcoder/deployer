@@ -35,17 +35,17 @@
                            title="Edit">
                             <i class="fas fa-pen"></i>
                         </a>
-                        <a href="{{ route('projects.configurations',['id' => $project->id]) }}"
+                        <a href="{{ route('projects.configurations',['project_id' => $project->id]) }}"
                            data-toggle="tooltip"
                            title="Configurations">
                             <i class="fas fa-tools"></i>
                         </a>
-                        <a href="{{ route('projects.deployments',['id' => $project->id]) }}"
+                        <a href="{{ route('projects.deployments',['project_id' => $project->id]) }}"
                            data-toggle="tooltip"
                            title="Deployments">
                             <i class="fas fa-tasks"></i>
                         </a>
-                        <a href="{{ route('projects.instances',['id' => $project->id]) }}"
+                        <a href="{{ route('projects.instances',['project_id' => $project->id]) }}"
                            data-toggle="tooltip"
                            title="Instances">
                             <i class="far fa-building"></i>
