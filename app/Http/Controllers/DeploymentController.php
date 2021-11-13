@@ -18,8 +18,22 @@ class DeploymentController extends Controller
     ): Renderable
     {
         $page = $request->get('page') ?? 1;
-        return view('pages.project-configurations.index', [
+        return view('pages.deployments.index', [
             'deployments' => $projectDeploymentConfigurationResource->list($project_id, $page),
+            'projectName' => $projectResource->getProjectName($project_id),
+            'projectId' => $project_id
+        ]);
+    }
+
+    public function show(
+        int                                    $project_id,
+        int                                    $id,
+        ProjectDeploymentConfigurationResource $projectDeploymentConfigurationResource,
+        ProjectResource                        $projectResource
+    ): Renderable
+    {
+        return view('pages.deployments.show', [
+            'deployment' => $projectDeploymentConfigurationResource->find($id),
             'projectName' => $projectResource->getProjectName($project_id),
             'projectId' => $project_id
         ]);

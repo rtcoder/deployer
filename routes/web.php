@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DeploymentConfigurationController;
+use App\Http\Controllers\DeploymentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Auth;
@@ -33,9 +34,8 @@ Route::prefix('projects')->group(function () {
     Route::prefix('/{project_id}')->group(function () {
 
         Route::prefix('/deployments')->group(function () {
-            Route::get('/', [ProjectController::class, 'deployments'])->name('projects.deployments');
-            Route::get('/{id}', [ProjectController::class, 'show'])->name('projects.deployments.show');
-
+            Route::get('/', [DeploymentController::class, 'index'])->name('projects.deployments');
+            Route::get('/{id}', [DeploymentController::class, 'show'])->name('projects.deployments.show');
         });
 
         Route::prefix('/configurations')->group(function () {

@@ -14,6 +14,16 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Deployment extends Model
 {
+    const STATUS_SUCCESS = 0;
+    const STATUS_PENDING = 1;
+    const STATUS_FAILED = 2;
+
+    const STATUSES = [
+        self::STATUS_SUCCESS,
+        self::STATUS_PENDING,
+        self::STATUS_FAILED
+    ];
+
     protected $fillable = [
         'branch',
         'project_id',
