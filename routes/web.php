@@ -32,7 +32,11 @@ Route::prefix('projects')->group(function () {
 
     Route::prefix('/{project_id}')->group(function () {
 
-        Route::get('/deployments', [ProjectController::class, 'deployments'])->name('projects.deployments');
+        Route::prefix('/deployments')->group(function () {
+            Route::get('/', [ProjectController::class, 'deployments'])->name('projects.deployments');
+            Route::get('/{id}', [ProjectController::class, 'show'])->name('projects.deployments.show');
+
+        });
 
         Route::prefix('/configurations')->group(function () {
             Route::get('/', [DeploymentConfigurationController::class, 'index'])->name('projects.configurations');
