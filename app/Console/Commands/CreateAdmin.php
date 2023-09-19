@@ -3,10 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Helpers\StringHelpers;
-use App\Models\Role;
 use App\Models\User;
-use App\Services\Role\RoleProvider;
-use App\Services\UserService;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
