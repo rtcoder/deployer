@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-name')
-    {{ __('deployer.Projects') }}
+    Edit project
 @endsection
 
 @section('page-actions')
@@ -21,7 +21,7 @@
         <div class="form-group">
             <label>
                 Repository
-                <input type="url" class="form-control" name="repo" required value="{{ old('repo') ?? $project->repo }}">
+                <input type="text" class="form-control" name="repo" required value="{{ old('repo') ?? $project->repo }}">
             </label>
         </div>
 

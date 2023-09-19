@@ -27,7 +27,7 @@ class ProjectRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'repo' => 'required|url',
+            'repo' => 'required|string',
             'type' => [
                 'required',
                 Rule::in(Project::TYPES)

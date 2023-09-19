@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-name')
-    Add project
+    Add deployment configuration for {{ $projectName }}
 @endsection
 
 @section('page-actions')
@@ -21,7 +21,7 @@
         <div class="form-group">
             <label>
                 Repository
-                <input type="text" class="form-control" name="repo" required value="{{ old('repo') }}">
+                <input type="url" class="form-control" name="repo" required value="{{ old('repo') }}">
             </label>
         </div>
 

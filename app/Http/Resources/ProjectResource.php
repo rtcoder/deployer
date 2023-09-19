@@ -49,4 +49,16 @@ class ProjectResource
     {
         return Project::query()->find($id);
     }
+
+    public function getProjectName(int $id): string|null
+    {
+        /**
+         * @var Project $project
+         */
+        $project = Project::query()->select(['name'])->find($id);
+        if (!$project) {
+            return null;
+        }
+        return $project->name;
+    }
 }

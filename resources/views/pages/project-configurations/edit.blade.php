@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-name')
-    Add project
+    Edit deployment configuration for {{ $projectName }}
 @endsection
 
 @section('page-actions')
@@ -14,22 +14,24 @@
         <div class="form-group">
             <label>
                 Name
-                <input type="text" class="form-control" name="name" required value="{{ old('name') }}">
+                <input type="text" class="form-control" name="name" required value="{{ old('name') ?? $project->name }}">
             </label>
         </div>
 
         <div class="form-group">
             <label>
                 Repository
-                <input type="text" class="form-control" name="repo" required value="{{ old('repo') }}">
+                <input type="url" class="form-control" name="repo" required value="{{ old('repo') ?? $project->repo }}">
             </label>
         </div>
 
         <div class="form-group">
             <label>Type</label>
-            <select class="form-control" name="type" required>
+            <select class="form-control" name="type">
                 @foreach($projectTypesNames as $type => $name)
-                    <option value="{{ $type }}" @if(old('$type') === $type) selected @endif>{{ $name }}</option>
+                    <option value="{{ $type }}"
+                            @if((old('$type') ?? $project->type) === $type) selected @endif
+                    >{{ $name }}</option>
                 @endforeach
             </select>
         </div>

@@ -15,10 +15,13 @@ class DeploymentConfiguration extends Model
 {
     protected $fillable = [
         'branch',
-        'project_id',
         'auto_deployment',
         'env_vars',
         'domain',
+    ];
+
+    protected $guarded = [
+        'project_id',
     ];
 
     protected $casts = [
