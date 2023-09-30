@@ -24,7 +24,7 @@
                         <a href="{{ route('projects.deployments.show', ['project_id' => $projectId, 'id' => $deployment->id]) }}"
                            data-bs-toggle="tooltip"
                            title="Show deployment">
-                            <i class="far fa-eye"></i>
+                            <span class="material-symbols-outlined">visibility</span>
                         </a>
                     </div>
                 </td>

@@ -22,19 +22,19 @@
                         <a href="{{ route('projects.instances.show', ['project_id' => $projectId, 'id' => $instance->id]) }}"
                            data-bs-toggle="tooltip"
                            title="Show deployment">
-                            <i class="far fa-eye"></i>
+                            <span class="material-symbols-outlined">visibility</span>
                         </a>
                         <a href="{{ $instance->domain }}"
                            data-bs-toggle="tooltip"
                            target="_blank"
                            title="Show instance">
-                            <i class="fas fa-external-link-alt"></i>
+                            <span class="material-symbols-outlined">open_in_new</span>
                         </a>
                     </div>
                 </td>
             </tr>
         @endforeach
-        @if(!count($deployments))
+        @if(!count($instances))
             <tr>
                 <td colspan="2" align="center">
                     <div class="d-flex flex-column align-items-center">

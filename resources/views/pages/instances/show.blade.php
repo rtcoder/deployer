@@ -16,7 +16,7 @@
         </h3>
 
         <p>Instance address: <a target="_blank" href="{{ $instance->domain }}">
-                <i class="fas fa-external-link-alt"></i> {{ $instance->domain }}
+                <span class="material-symbols-outlined">open_in_new</span> {{ $instance->domain }}
             </a>
         </p>
 

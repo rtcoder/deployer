@@ -31,13 +31,13 @@
                         <a href="{{ route('projects.configurations.run', ['project_id' => $projectId, 'id' => $configuration->id]) }}"
                            data-bs-toggle="tooltip"
                            title="Run configuration">
-                            <i class="fas fa-play"></i>
+                            <span class="material-symbols-outlined">play_arrow</span>
                         </a>
                         <a href="{{ $configuration->domain }}"
                            target="_blank"
                            data-bs-toggle="tooltip"
                            title="Open in new tab">
-                            <i class="fas fa-external-link-alt"></i>
+                            <span class="material-symbols-outlined">open_in_new</span>
                         </a>
                     </div>
                 </td>
