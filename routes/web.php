@@ -7,17 +7,6 @@ use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Auth::routes(['register' => false]);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -29,6 +18,7 @@ Route::prefix('projects')->group(function () {
     Route::post('/new', [ProjectController::class, 'create']);
     Route::get('/{id}', [ProjectController::class, 'show'])->name('projects.show');
     Route::post('/{id}', [ProjectController::class, 'update']);
+    Route::get('/delete/{id}', [ProjectController::class, 'delete'])->name('projects.delete');
 
 
     Route::prefix('/{project_id}')->group(function () {

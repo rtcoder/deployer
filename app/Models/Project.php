@@ -16,6 +16,7 @@ class Project extends Model
     const TYPE_ANGULAR = 'angular';
     const TYPE_NODEJS = 'nodejs';
     const TYPE_SVELTE = 'svelte';
+    const TYPE_HTML = 'html';
 
     const TYPES = [
         self::TYPE_LARAVEL,
@@ -23,6 +24,7 @@ class Project extends Model
         self::TYPE_REACT,
         self::TYPE_NODEJS,
         self::TYPE_SVELTE,
+        self::TYPE_HTML,
     ];
 
     const TYPES_NAMES = [
@@ -31,6 +33,7 @@ class Project extends Model
         self::TYPE_REACT => 'React',
         self::TYPE_NODEJS => 'NodeJS',
         self::TYPE_SVELTE => 'Svelte',
+        self::TYPE_HTML => 'HTML',
     ];
 
     protected $fillable = [

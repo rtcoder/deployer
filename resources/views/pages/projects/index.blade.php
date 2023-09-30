@@ -24,31 +24,36 @@
                 <td>
                     <img style="height:25px" src="{{ asset('images/' . $project->type . '.png') }}"
                          alt="{{ $project->type }}"
-                         data-toggle="tooltip"
+                         data-bs-toggle="tooltip"
                     title="{{ $projectTypesNames[$project->type] }}">
                 </td>
                 <td>{{ $project->name }}</td>
                 <td>
                     <div class="actions">
                         <a href="{{ route('projects.show',['id' => $project->id]) }}"
-                           data-toggle="tooltip"
+                           data-bs-toggle="tooltip"
                            title="Edit">
-                            <i class="fas fa-pen"></i>
+                            <span class="material-symbols-outlined">edit</span>
                         </a>
                         <a href="{{ route('projects.configurations',['project_id' => $project->id]) }}"
-                           data-toggle="tooltip"
+                           data-bs-toggle="tooltip"
                            title="Configurations">
-                            <i class="fas fa-tools"></i>
+                            <span class="material-symbols-outlined">construction</span>
                         </a>
                         <a href="{{ route('projects.deployments',['project_id' => $project->id]) }}"
-                           data-toggle="tooltip"
+                           data-bs-toggle="tooltip"
                            title="Deployments">
-                            <i class="fas fa-tasks"></i>
+                            <span class="material-symbols-outlined">checklist</span>
                         </a>
                         <a href="{{ route('projects.instances',['project_id' => $project->id]) }}"
-                           data-toggle="tooltip"
+                           data-bs-toggle="tooltip"
                            title="Instances">
-                            <i class="far fa-building"></i>
+                            <span class="material-symbols-outlined">domain</span>
+                        </a>
+                        <a href="{{ route('projects.delete',['id' => $project->id]) }}"
+                           data-bs-toggle="tooltip"
+                           title="Delete">
+                            <span class="material-symbols-outlined">delete</span>
                         </a>
                     </div>
                 </td>

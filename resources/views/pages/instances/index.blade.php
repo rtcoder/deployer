@@ -20,12 +20,12 @@
                 <td>
                     <div class="actions">
                         <a href="{{ route('projects.instances.show', ['project_id' => $projectId, 'id' => $instance->id]) }}"
-                           data-toggle="tooltip"
+                           data-bs-toggle="tooltip"
                            title="Show deployment">
                             <i class="far fa-eye"></i>
                         </a>
                         <a href="{{ $instance->domain }}"
-                           data-toggle="tooltip"
+                           data-bs-toggle="tooltip"
                            target="_blank"
                            title="Show instance">
                             <i class="fas fa-external-link-alt"></i>

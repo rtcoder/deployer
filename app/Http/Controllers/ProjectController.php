@@ -51,4 +51,11 @@ class ProjectController extends Controller
         $project->update($request->all());
         return redirect()->route('projects');
     }
+
+    public function delete(int $id, ProjectResource $projectResource): RedirectResponse
+    {
+        $project = $projectResource->find($id);
+        $project->delete();
+        return redirect()->route('projects');
+    }
 }

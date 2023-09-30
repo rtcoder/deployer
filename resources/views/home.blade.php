@@ -4,12 +4,16 @@
     Dashboard
 @endsection
 
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/pages/home.css') }}">
+@endsection
+
 @section('content')
     <div class="tiles">
         <a href="{{ route('projects') }}">
             <div class="tile">
                 <div class="tile-icon">
-                    <i class="fas fa-cubes"></i>
+                    <span class="material-symbols-outlined">deployed_code</span>
                 </div>
                 <div class="tile-text">
                     {{ $projects_count }} projects

@@ -24,18 +24,18 @@
                 <td>
                     <div class="actions">
                         <a href="{{ route('projects.configurations.show', ['project_id' => $projectId, 'id' => $configuration->id]) }}"
-                           data-toggle="tooltip"
+                           data-bs-toggle="tooltip"
                            title="Edit">
-                            <i class="fas fa-pen"></i>
+                            <span class="material-symbols-outlined">edit</span>
                         </a>
                         <a href="{{ route('projects.configurations.run', ['project_id' => $projectId, 'id' => $configuration->id]) }}"
-                           data-toggle="tooltip"
+                           data-bs-toggle="tooltip"
                            title="Run configuration">
                             <i class="fas fa-play"></i>
                         </a>
                         <a href="{{ $configuration->domain }}"
                            target="_blank"
-                           data-toggle="tooltip"
+                           data-bs-toggle="tooltip"
                            title="Open in new tab">
                             <i class="fas fa-external-link-alt"></i>
                         </a>

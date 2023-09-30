@@ -3,14 +3,16 @@
     flex-direction: row;
     justify-content: end;
     align-items: center;
+
+    & a {
+        color: #000000;
+        margin: 5px 10px;
+        font-size: 18px;
+
+        :hover {
+            color: #09c;
+        }
+    }
 }
 
-.actions a {
-    color: #000000;
-    margin: 5px 10px;
-    font-size: 18px;
-}
 
-.actions a:hover {
-    color: #09c;
-}
